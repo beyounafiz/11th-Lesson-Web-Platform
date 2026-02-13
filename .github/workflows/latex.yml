@@ -1,0 +1,29 @@
+name: Compile LaTeX SRS
+
+on:
+  push:
+    paths:
+      - 'srs/**'
+  pull_request:
+    paths:
+      - 'srs/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Compile LaTeX
+        uses: xu-cheng/latex-action@v2
+        with:
+          root_file: srs/main.tex
+
+      - name: Upload PDF artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: SRS-PDF
+          path: srs/main.pdf
+
