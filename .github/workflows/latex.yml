@@ -22,7 +22,7 @@ jobs:
           root_file: srs/main.tex
 
       - name: Upload PDF artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: SRS-PDF
           path: srs/main.pdf
